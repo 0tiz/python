@@ -6,6 +6,8 @@ import json
 url_abfrage = urllib2.Request("http://api.open-notify.org/iss-now.json")
 response = urllib2.urlopen(url_abfrage)
 
+test = "PushTest"
+
 obj = json.loads(response.read())
 check = obj['message']
 laengengrad = obj['iss_position']['longitude']
