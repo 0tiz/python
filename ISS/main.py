@@ -1,12 +1,10 @@
-## Version Python 2.7
+#!/usr/bin/env python3
 
-import urllib2
+import urllib.request
 import json
+import pprint
 
-url_abfrage = urllib2.Request("http://api.open-notify.org/iss-now.json")
-response = urllib2.urlopen(url_abfrage)
-
-test = "PushTest"
+response = urllib.request.urlopen("http://api.open-notify.org/iss-now.json")
 
 obj = json.loads(response.read())
 check = obj['message']
@@ -15,12 +13,12 @@ breitengrad = obj['iss_position']['latitude']
 
 
 if  check == 'success':
-    print 'erfolg'
+    print ('erfolg')
 else:
-    print 'ISS ist down'
+    print ('ISS ist down')
 
 
 
-print obj['timestamp']
-print 'ISS Laengengrad: '+laengengrad
-print 'ISS Breitengrad: '+breitengrad
+print (obj['timestamp'])
+print ('ISS Laengengrad: '+laengengrad)
+print ('ISS Breitengrad: '+breitengrad)
